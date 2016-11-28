@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script> 
+    <script src="lib/angular-resource/angular-resource.js"></script> 
+    <script src="controller.js"></script> 
+	<!-- <link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">	
+	 -->
+	<title>Test</title>
+</head>
+<body>
+
+
+<div ng-app="app">
+<scc>
+  <div id="content">
+    <ul class="list-group">
+    <input type="text" name="" ng-model="gogo">
+    <input type="text" name="" ng-model="gog">
+    <button ng-click="scc.motaro(gogo, gog)" ng-disabled="false">check</button>
+      <li class="list-group-item" ng-repeat="item in scc.node = (scc.items | filter:{id:scc.gogo, img: scc.gog}) | startFrom: scc.startingItem() | limitTo: scc.itemsPerPage" >{{item.id}}</li>
+    </ul>
+    <div id="pagination" class="row">
+    <span>{{scc.node.length}}</span>
+      <button class="pull-left btn btn-primary btn-sm" ng-disabled="scc.firstPage()" ng-click="scc.pageBack()">Назад</button>
+      <span>{{scc.currentPage+1}} из {{scc.numberOfPages()}}</span>
+      <button class="pull-right  btn btn-primary btn-sm" ng-disabled="scc.lastPage()" ng-click="scc.pageForward()">Вперед</button>
+    </div>
+  </div>
+</div>
+</scc>
+
+</body>
+</html>

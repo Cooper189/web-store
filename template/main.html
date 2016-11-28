@@ -1,0 +1,36 @@
+<div class="col-md-8">
+<scc>
+  <div id="content" >
+    <input type="text" name="" ng-model="gog">
+    <!-- <ul class="list-group">  -->
+    <button ng-click="scc.motaro(gogo, gog)" ng-disabled="false">check</button>
+      <div class="list-group-item row" ng-repeat="item in scc.node = (scc.items | filter:{id:scc.gogo, title: scc.gog}) | startFrom: scc.startingItem() | limitTo: scc.itemsPerPage" >
+      <div class="col-md-4">
+        <img ng-src="img/{{item.img}}">
+      </div>
+      <div class="col-md-6">
+        {{item.title}}
+      </div>
+       <div class="col-md-2">
+         {{item.price | currency}}
+       </div> 
+      </div>
+    <!-- </ul> -->
+    <div id="pagination" class="row">
+    <span>{{scc.node.length}}</span>
+      <button class="pull-left btn btn-primary btn-sm" ng-disabled="scc.firstPage()" ng-click="scc.pageBack()">Назад</button>
+      <span>{{scc.currentPage+1}} из {{scc.numberOfPages()}}</span>
+      <button class="pull-right  btn btn-primary btn-sm" ng-disabled="scc.lastPage()" ng-click="scc.pageForward()">Вперед</button>
+    </div>
+  </div>
+</div>
+</scc>
+</div>
+<div class="col-md-4">
+  <div>Игры</div>
+  <div>DLS</div>
+  <div>shooter</div>
+  <div>strateg</div> 
+  <div>racing</div>
+  <div>quest</div>  
+</div>

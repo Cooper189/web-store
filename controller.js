@@ -22,6 +22,9 @@ app.directive('scc', function () {
       bindToController: true,
     controller: function (goodsService, $timeout) {
       var self = this;
+      self.gogo = '';
+      
+      console.log(self.gogo);
       self.currentPage = 0;
       self.itemsPerPage = 10;
       self.items = [];
@@ -31,7 +34,7 @@ app.directive('scc', function () {
     return self.currentPage == 0;
   }
   self.lastPage = function() {
-    var lastPageNum = Math.ceil(self.node.length / self.itemsPerPage - 1);console.log(self.node.length);
+    var lastPageNum = Math.ceil(self.node.length / self.itemsPerPage - 1);
     return self.currentPage == lastPageNum;
   }
   self.numberOfPages = function(){
@@ -52,6 +55,10 @@ app.directive('scc', function () {
     self.gogo = x;
     self.currentPage = 0;
     }
+    self.play = function () {
+        self.gogo = (self.gogo) ? '' : 11001;
+        console.log(self.gogo)
+      };
   },
   };
 })

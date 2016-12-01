@@ -13,6 +13,19 @@ app.filter('startFrom', function(){
     return input.slice(start);
   }
 })
+app.filter('spliceFun', function () {
+  return function (input, start) {
+    var remove = [];
+    if(start.length > 0) {
+    for (var i = 0; i < start.length; i++) {
+      remove.push(input[start[i]]);
+      }
+    return remove;
+    }else {
+      return input;
+    }
+  } 
+})
 app.directive('scc', function () {
   return {
     scope: {},
@@ -23,13 +36,19 @@ app.directive('scc', function () {
     controller: function (goodsService, $timeout) {
       var self = this;
       self.gogo = '';
-      
-      console.log(self.gogo);
+      self.start =[];
+
+      self.each = function (x) {
+        self.start.push(x);
+        // console.log(self.start);
+      }
+      // console.log(self.gogo);
       self.currentPage = 0;
       self.itemsPerPage = 10;
-      self.items = [];
+      // self.items = [];
+      self.node = [];
        var goodsPromise = goodsService.getGoods();
-      goodsPromise.then(function (val) {self.items = val;});
+      goodsPromise.then(function (val) {self.items = val;console.log(self.items.length)});
       self.firstPage = function() {
     return self.currentPage == 0;
   }
@@ -68,7 +87,7 @@ app.factory('goodsService', ['$http','$q', function ($http, $q) {
     getGoods: function () {
       var d = $q.defer();
       $http({method: 'POST', url: 'items.json'}).success(function (data, status, headers, config) {
-        d.resolve(data.slides);
+        d.resolve(data);
       }).error(function() {
         d.reject(status)
       });

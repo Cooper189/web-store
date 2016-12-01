@@ -5,7 +5,8 @@
     <input type="text" name="" ng-model="gog">
     <!-- <ul class="list-group">  -->
     <button ng-click="scc.motaro(gog)" ng-disabled="false">check</button>
-      <div class="list-group-item row" ng-repeat="item in scc.node = (scc.items | filter:{id:scc.gogo, title: scc.gog}) | startFrom: scc.startingItem() | limitTo: scc.itemsPerPage" >
+    <div ng-repeat="items in scc.items | spliceFun: scc.start">
+      <div class="list-group-item row" ng-repeat="item in scc.node = (items.slides | filter:{id:scc.gogo, title: scc.gog}) | startFrom: scc.startingItem() | limitTo: scc.itemsPerPage" >
       <div class="col-md-4">
         <img ng-src="img/{{item.img}}">
       </div>
@@ -15,6 +16,7 @@
        <div class="col-md-2">
          {{item.price | currency}}
        </div> 
+      </div>
       </div>
     <!-- </ul> -->
     <div id="pagination" class="row">
@@ -31,9 +33,9 @@
   <div ng-click="scc.play()" style="cursor: pointer">Игры</div>
   <div>DLS</div>
   <div>shooter</div>
-  <div>strateg</div> 
-  <div>racing</div>
-  <div>quest</div>  
+  <div ng-click="scc.each(0)" style="cursor: pointer">strateg</div> 
+  <div ng-click="scc.each(1)" style="cursor: pointer">racing</div>
+  <div ng-click="scc.each(2)" style="cursor: pointer">quest</div>  
 
 </div>
 </scc>

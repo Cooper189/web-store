@@ -48,7 +48,7 @@ app.directive('scc', function () {
       // self.items = [];
       self.node = [];
        var goodsPromise = goodsService.getGoods();
-      goodsPromise.then(function (val) {self.items = val;console.log(self.items.length)});
+      goodsPromise.then(function (val) {self.items = val;});
       self.firstPage = function() {
     return self.currentPage == 0;
   }
@@ -62,8 +62,13 @@ app.directive('scc', function () {
   self.startingItem = function() {    
     return self.currentPage * self.itemsPerPage;
   }
-  self.pageBack = function() {
-    self.currentPage = self.currentPage - 1;
+  self.foo = 5;
+  self.pageBack = function(p) {
+    if(self.foo > p) {
+      return true 
+      }else{
+      return false}
+    
   }
   self.pageForward = function() {
 
